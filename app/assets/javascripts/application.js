@@ -11,6 +11,22 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require activestorage
+//= require moment
+//= require fullcalendar
 //= require turbolinks
 //= require_tree .
+
+$('#calendar').fullCalendar({});
+function eventCalendar() {
+  return $('#calendar').fullCalendar({});
+};
+function clearCalendar() {
+  $('#calendar').fullCalendar('delete'); // In case delete doesn't work.
+  $('#calendar').html('');
+};
+$(document).on('turbolinks:load', eventCalendar);
+$(document).on('turbolinks:before-cache', clearCalendar)
+
